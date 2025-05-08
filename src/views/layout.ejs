@@ -2,32 +2,26 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title><%= title %> | Superhéroes</title>
+    <title>
+      <%= typeof title !== 'undefined' ? title : 'Inicio' %> | Superhéroes
+    </title>
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <!-- NAVBAR -->
-    <nav style="background-color: #2b87ff; padding: 10px">
-      <a href="/api" style="color: white; margin-right: 20px">Inicio</a>
-      <a href="/api/heroes" style="color: white; margin-right: 20px"
-        >Lista de Superhéroes</a
-      >
-      <a href="/api/heroes/agregar" style="color: white">Agregar Superhéroe</a>
+    <!-- Navbar -->
+    <nav>
+      <a href="/api">Inicio</a>
+      <a href="/api/heroes">Lista de Superhéroes</a>
+      <a href="/api/heroes/agregar">Agregar Superhéroe</a>
     </nav>
 
-    <!-- CONTENIDO DINÁMICO -->
-    <main style="padding: 20px"><%- body %></main>
+    <!-- Contenido -->
+    <main><%- body %></main>
 
-    <!-- FOOTER -->
-    <footer
-      style="background-color: #f4f4f4; padding: 10px; text-align: center"
-    >
+    <!-- Footer -->
+    <footer>
       <p>
-        © <%= new Date().getFullYear() %> TuNombre. Todos los derechos
-        reservados.
-      </p>
-      <p>
-        Contacto: <a href="mailto:correo@tudominio.com">correo@tudominio.com</a>
+        © <%= new Date().getFullYear() %> / Creador:Leandro Canclini / SuperApp
       </p>
     </footer>
   </body>

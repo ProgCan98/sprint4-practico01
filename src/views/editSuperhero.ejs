@@ -1,134 +1,91 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Editar Superhéroe</title>
-    <style>
-      /* Estilo básico */
-      body {
-        font-family: sans-serif;
-        padding: 20px;
-      }
-      form {
-        max-width: 600px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      label {
-        font-weight: bold;
-      }
-      input,
-      textarea {
-        padding: 8px;
-        font-size: 14px;
-      }
-      button {
-        padding: 10px;
-        background-color: #2b87ff;
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #155ab4;
-      }
-    </style>
-  </head>
-  <body>
-    <%- include('partials/navbar') %>
-    <h1>🦸‍♀️ Editar Superhéroe</h1>
-    <% if (errores && errores.length > 0) { %>
-    <ul style="color: red; list-style: disc; padding-left: 20px">
-      <% errores.forEach(error => { %>
-      <li><%= error %></li>
-      <% }) %>
-    </ul>
-    <% } %>
-    <form action="/api//heroes/<%= superheroe._id %>/editar" method="POST">
-      <label for="nombreSuperHeroe">Nombre del Superhéroe *</label>
-      <input
-        type="text"
-        name="nombreSuperHeroe"
-        id="nombreSuperHeroe"
-        required
-        minlength="3"
-        maxlength="60"
-        value="<%= superheroe.nombreSuperHeroe %>"
-      />
+<h1>🦸‍♀️ Editar Superhéroe</h1>
+<% if (errores && errores.length > 0) { %>
+<ul style="color: red; list-style: disc; padding-left: 20px">
+  <% errores.forEach(error => { %>
+  <li><%= error %></li>
+  <% }) %>
+</ul>
+<% } %>
+<form action="/api/heroes/<%= superheroe._id %>/editar" method="POST">
+  <label for="nombreSuperHeroe">Nombre del Superhéroe *</label>
+  <input
+    type="text"
+    name="nombreSuperHeroe"
+    id="nombreSuperHeroe"
+    required
+    minlength="3"
+    maxlength="60"
+    value="<%= superheroe.nombreSuperHeroe %>"
+  />
 
-      <label for="nombreReal">Nombre Real *</label>
-      <input
-        type="text"
-        name="nombreReal"
-        id="nombreReal"
-        required
-        minlength="3"
-        maxlength="60"
-        value="<%= superheroe.nombreReal %>"
-      />
+  <label for="nombreReal">Nombre Real *</label>
+  <input
+    type="text"
+    name="nombreReal"
+    id="nombreReal"
+    required
+    minlength="3"
+    maxlength="60"
+    value="<%= superheroe.nombreReal %>"
+  />
 
-      <label for="edad">Edad *</label>
-      <input
-        type="number"
-        name="edad"
-        id="edad"
-        required
-        min="0"
-        value="<%= superheroe.edad %>"
-      />
+  <label for="edad">Edad *</label>
+  <input
+    type="number"
+    name="edad"
+    id="edad"
+    required
+    min="0"
+    value="<%= superheroe.edad %>"
+  />
 
-      <label for="planetaOrigen">Planeta de Origen</label>
-      <input
-        type="text"
-        name="planetaOrigen"
-        id="planetaOrigen"
-        value="<%= superheroe.planetaOrigen %>"
-      />
+  <label for="planetaOrigen">Planeta de Origen</label>
+  <input
+    type="text"
+    name="planetaOrigen"
+    id="planetaOrigen"
+    value="<%= superheroe.planetaOrigen %>"
+  />
 
-      <label for="debilidad">Debilidad</label>
-      <input
-        type="text"
-        name="debilidad"
-        id="debilidad"
-        value="<%= superheroe.debilidad %>"
-      />
+  <label for="debilidad">Debilidad</label>
+  <input
+    type="text"
+    name="debilidad"
+    id="debilidad"
+    value="<%= superheroe.debilidad %>"
+  />
 
-      <label for="poderes">Poderes (separados por coma)</label>
-      <input
-        type="text"
-        name="poderes"
-        id="poderes"
-        value="<%= Array.isArray(superheroe.poderes) ? superheroe.poderes.join(', ') : superheroe.poderes || '' %>"
-      />
+  <label for="poderes">Poderes (separados por coma)</label>
+  <input
+    type="text"
+    name="poderes"
+    id="poderes"
+    value="<%= Array.isArray(superheroe.poderes) ? superheroe.poderes.join(', ') : superheroe.poderes || '' %>"
+  />
 
-      <label for="aliados">Aliados (separados por coma)</label>
-      <input
-        type="text"
-        name="aliados"
-        id="aliados"
-        value="<%= Array.isArray(superheroe.aliados) ? superheroe.aliados.join(', ') : superheroe.aliados || '' %>"
-      />
+  <label for="aliados">Aliados (separados por coma)</label>
+  <input
+    type="text"
+    name="aliados"
+    id="aliados"
+    value="<%= Array.isArray(superheroe.aliados) ? superheroe.aliados.join(', ') : superheroe.aliados || '' %>"
+  />
 
-      <label for="enemigos">Enemigos (separados por coma)</label>
-      <input
-        type="text"
-        name="enemigos"
-        id="enemigos"
-        value="<%= Array.isArray(superheroe.enemigos) ? superheroe.enemigos.join(', ') : superheroe.enemigos || '' %>"
-      />
+  <label for="enemigos">Enemigos (separados por coma)</label>
+  <input
+    type="text"
+    name="enemigos"
+    id="enemigos"
+    value="<%= Array.isArray(superheroe.enemigos) ? superheroe.enemigos.join(', ') : superheroe.enemigos || '' %>"
+  />
 
-      <label for="creador">Creador</label>
-      <input
-        type="text"
-        name="creador"
-        id="creador"
-        value="<%= superheroe.creador %>"
-      />
+  <label for="creador">Creador</label>
+  <input
+    type="text"
+    name="creador"
+    id="creador"
+    value="<%= superheroe.creador %>"
+  />
 
-      <button type="submit">Guardar Cambios</button>
-    </form>
-    <%- include('partials/footer') %>
-  </body>
-</html>
+  <button type="submit">Guardar Cambios</button>
+</form>
