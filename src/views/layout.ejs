@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= title %> | Superhéroes</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav style="background-color: #2b87ff; padding: 10px">
+      <a href="/api" style="color: white; margin-right: 20px">Inicio</a>
+      <a href="/api/heroes" style="color: white; margin-right: 20px"
+        >Lista de Superhéroes</a
+      >
+      <a href="/api/heroes/agregar" style="color: white">Agregar Superhéroe</a>
+    </nav>
+
+    <!-- CONTENIDO DINÁMICO -->
+    <main style="padding: 20px"><%- body %></main>
+
+    <!-- FOOTER -->
+    <footer
+      style="background-color: #f4f4f4; padding: 10px; text-align: center"
+    >
+      <p>
+        © <%= new Date().getFullYear() %> TuNombre. Todos los derechos
+        reservados.
+      </p>
+      <p>
+        Contacto: <a href="mailto:correo@tudominio.com">correo@tudominio.com</a>
+      </p>
+    </footer>
+  </body>
+</html>

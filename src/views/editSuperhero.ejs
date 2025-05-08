@@ -37,6 +37,7 @@
     </style>
   </head>
   <body>
+    <%- include('partials/navbar') %>
     <h1>🦸‍♀️ Editar Superhéroe</h1>
     <% if (errores && errores.length > 0) { %>
     <ul style="color: red; list-style: disc; padding-left: 20px">
@@ -128,5 +129,6 @@
 
       <button type="submit">Guardar Cambios</button>
     </form>
+    <%- include('partials/footer') %>
   </body>
 </html>

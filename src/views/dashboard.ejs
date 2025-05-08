@@ -25,6 +25,7 @@
     </style>
   </head>
   <body>
+    <%- include('partials/navbar') %>
     <h1>🦸‍♂️ Dashboard de Superhéroes</h1>
 
     <% if (superheroes.length === 0) { %>
@@ -69,6 +70,6 @@
         <% }); %>
       </tbody>
     </table>
-    <% } %>
+    <% } %> <%- include('partials/footer') %>
   </body>
 </html>

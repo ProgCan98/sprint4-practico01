@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import superHeroRoutes from './routes/superHeroRoutes.mjs';
 import methodOverride from 'method-override';
+import expressLayouts from 'express-ejs-layouts';
 
 const app = express();
 const server = createServer(app);
@@ -24,6 +25,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'))); // Para archivos estáticos (CSS/JS)
 app.use(methodOverride('_method'));
+app.use(expressLayouts);
+app.set('layout', 'layout'); // Este es tu archivo layout.ejs en la carpeta views
 
 // Conexion mongodb
 connectDB();
