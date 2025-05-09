@@ -20,6 +20,8 @@ const __dirname = path.dirname(__filename); // Directorio de app.mjs
 app.set('view engine', 'ejs'); // Usar EJS como motor
 app.set('views', path.join(__dirname, 'views')); // Ruta de las vistas
 
+
+
 //Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
