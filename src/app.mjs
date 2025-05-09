@@ -42,7 +42,7 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 3000;
 
 // Iniciar el servidor
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0',() => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
 // app.mjs centraliza la configuración de la aplicación, conectando a MongoDB y cargando las rutas necesarias. Esto permite una configuración modular y fácilmente escalable, asegurando que la aplicación esté lista para manejar solicitudes en el entorno de desarrollo o producción.
